@@ -1,0 +1,68 @@
+Real catalog: /Users/brianlockhart/.codex/models_cache.json
+
+===== spawn codex --model gpt-6-sol --effort max   (CODEX_HOME=/Users/brianlockhart/.codex) =====
+--- spawn output (exit 0) ---
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-sol/home/data/live-codex-sol-z1/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-sol/fake/fakebin/timeout: line 3: exec: 1: not found
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-sol/fake/fakebin/timeout: line 3: exec: 1: not found
+spawned live-codex-sol-z1 harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-live-codex-sol-z1 worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-sol/wt
+--- recorded launch command (send-keys) ---
+export COMPACT_ADVISER_DISABLE=1; env -u CURSOR_AGENT -u CURSOR_INVOKED_AS -u GEMINI_CLI codex --model 'gpt-6-sol' -c 'model_reasoning_effort="max"' --dangerously-bypass-approvals-and-sandbox --disable hooks -c "notify=[\"bash\",\"-c\",\"touch '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-sol/home/state/live-codex-sol-z1.turn-ended'\"]" "$('/Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M35AKHMKYDZW3CKS775JVYM3/bin/fm-operational-input.sh' encode launch-brief < '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-sol/home/data/live-codex-sol-z1/launch-brief.md')"
+--- task metadata state/live-codex-sol-z1.meta (harness/model/effort) ---
+harness=codex
+model=gpt-6-sol
+effort=max
+
+===== spawn codex --model gpt-6-luna --effort max   (CODEX_HOME=/Users/brianlockhart/.codex) =====
+--- spawn output (exit 0) ---
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-luna/home/data/live-codex-luna-z2/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-luna/fake/fakebin/timeout: line 3: exec: 1: not found
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-luna/fake/fakebin/timeout: line 3: exec: 1: not found
+spawned live-codex-luna-z2 harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-live-codex-luna-z2 worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-luna/wt
+--- recorded launch command (send-keys) ---
+export COMPACT_ADVISER_DISABLE=1; env -u CURSOR_AGENT -u CURSOR_INVOKED_AS -u GEMINI_CLI codex --model 'gpt-6-luna' -c 'model_reasoning_effort="max"' --dangerously-bypass-approvals-and-sandbox --disable hooks -c "notify=[\"bash\",\"-c\",\"touch '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-luna/home/state/live-codex-luna-z2.turn-ended'\"]" "$('/Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M35AKHMKYDZW3CKS775JVYM3/bin/fm-operational-input.sh' encode launch-brief < '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-luna/home/data/live-codex-luna-z2/launch-brief.md')"
+--- task metadata state/live-codex-luna-z2.meta (harness/model/effort) ---
+harness=codex
+model=gpt-6-luna
+effort=max
+
+===== spawn codex --model gpt-5.6-terra --effort max   (CODEX_HOME=/Users/brianlockhart/.codex) =====
+--- spawn output (exit 0) ---
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-terra/home/data/live-codex-terra-z3/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-terra/fake/fakebin/timeout: line 3: exec: 1: not found
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-terra/fake/fakebin/timeout: line 3: exec: 1: not found
+spawned live-codex-terra-z3 harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-live-codex-terra-z3 worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-terra/wt
+--- recorded launch command (send-keys) ---
+export COMPACT_ADVISER_DISABLE=1; env -u CURSOR_AGENT -u CURSOR_INVOKED_AS -u GEMINI_CLI codex --model 'gpt-5.6-terra' -c 'model_reasoning_effort="max"' --dangerously-bypass-approvals-and-sandbox --disable hooks -c "notify=[\"bash\",\"-c\",\"touch '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-terra/home/state/live-codex-terra-z3.turn-ended'\"]" "$('/Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M35AKHMKYDZW3CKS775JVYM3/bin/fm-operational-input.sh' encode launch-brief < '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-terra/home/data/live-codex-terra-z3/launch-brief.md')"
+--- task metadata state/live-codex-terra-z3.meta (harness/model/effort) ---
+harness=codex
+model=gpt-5.6-terra
+effort=max
+
+===== spawn codex --model gpt-5.5 --effort max   (CODEX_HOME=/Users/brianlockhart/.codex) =====
+--- spawn output (exit 0) ---
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-55/home/data/live-codex-55-z4/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-55/fake/fakebin/timeout: line 3: exec: 1: not found
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-55/fake/fakebin/timeout: line 3: exec: 1: not found
+notice: Codex model catalog does not advertise max for model 'gpt-5.5'; effort=max recorded but not passed to codex
+spawned live-codex-55-z4 harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-live-codex-55-z4 worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-55/wt
+--- recorded launch command (send-keys) ---
+export COMPACT_ADVISER_DISABLE=1; env -u CURSOR_AGENT -u CURSOR_INVOKED_AS -u GEMINI_CLI codex --model 'gpt-5.5' --dangerously-bypass-approvals-and-sandbox --disable hooks -c "notify=[\"bash\",\"-c\",\"touch '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-55/home/state/live-codex-55-z4.turn-ended'\"]" "$('/Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M35AKHMKYDZW3CKS775JVYM3/bin/fm-operational-input.sh' encode launch-brief < '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-55/home/data/live-codex-55-z4/launch-brief.md')"
+--- task metadata state/live-codex-55-z4.meta (harness/model/effort) ---
+harness=codex
+model=gpt-5.5
+effort=max
+
+===== spawn codex --model gpt-6-sol --effort max   (CODEX_HOME=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/nohome) =====
+--- spawn output (exit 0) ---
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-nocat/home/data/live-codex-nocat-z5/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-nocat/fake/fakebin/timeout: line 3: exec: 1: not found
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-nocat/fake/fakebin/timeout: line 3: exec: 1: not found
+notice: Codex model catalog unavailable; effort=max recorded but not passed to codex
+spawned live-codex-nocat-z5 harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-live-codex-nocat-z5 worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-nocat/wt
+--- recorded launch command (send-keys) ---
+export COMPACT_ADVISER_DISABLE=1; env -u CURSOR_AGENT -u CURSOR_INVOKED_AS -u GEMINI_CLI codex --model 'gpt-6-sol' --dangerously-bypass-approvals-and-sandbox --disable hooks -c "notify=[\"bash\",\"-c\",\"touch '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-nocat/home/state/live-codex-nocat-z5.turn-ended'\"]" "$('/Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M35AKHMKYDZW3CKS775JVYM3/bin/fm-operational-input.sh' encode launch-brief < '/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-live-drive.s5vb0g/live-nocat/home/data/live-codex-nocat-z5/launch-brief.md')"
+--- task metadata state/live-codex-nocat-z5.meta (harness/model/effort) ---
+harness=codex
+model=gpt-6-sol
+effort=max

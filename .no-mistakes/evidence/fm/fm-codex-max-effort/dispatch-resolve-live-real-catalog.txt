@@ -1,0 +1,168 @@
+Installed catalog: /Users/brianlockhart/.codex/models_cache.json (client_version 0.155.0, codex-cli codex-cli 0.155.1)
+
+$ bin/fm-harness.sh codex-max-models   (real catalog)
+["gpt-6-astra","gpt-6-sol","gpt-6-luna","gpt-reserve","gpt-5.6-sol","gpt-5.6-terra","gpt-5.6-luna","codex-auto-review"]
+--- exit 0 ---
+
+===== AFTER (target): codex gpt-6-sol max, real catalog =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 140   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-6-sol  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+--- exit 0 ---
+
+===== AFTER (target): codex gpt-6-luna max, real catalog =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-luna","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 11   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-6-luna  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+--- exit 0 ---
+
+===== AFTER (target): codex gpt-6-astra max, real catalog =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-astra","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 12   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-6-astra  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+--- exit 0 ---
+
+===== AFTER (target): codex gpt-5.6-terra max, real catalog =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-5.6-terra","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 12   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-5.6-terra  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+--- exit 0 ---
+
+===== AFTER (target): codex gpt-5.6-luna max, real catalog =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-5.6-luna","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 11   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-5.6-luna  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+--- exit 0 ---
+
+===== BEFORE (base ada21f5): codex gpt-6-sol max, real catalog =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"max"}}]}
+--- stderr ---
+error: malformed rules file: /tmp/fm-resolver-live.axCJC7/home/config/crew-dispatch.json - each use profile effort must be supported by its harness and model
+--- exit 2 ---
+
+===== BEFORE (base ada21f5): codex gpt-6-luna max, real catalog =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-luna","effort":"max"}}]}
+--- stderr ---
+error: malformed rules file: /tmp/fm-resolver-live.axCJC7/home/config/crew-dispatch.json - each use profile effort must be supported by its harness and model
+--- exit 2 ---
+
+===== AFTER: codex gpt-5.5 max (catalog stops at xhigh) is rejected =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-5.5","effort":"max"}}]}
+--- stderr ---
+error: malformed rules file: /tmp/fm-resolver-live.axCJC7/home/config/crew-dispatch.json - each use profile effort must be supported by its harness and model
+--- exit 2 ---
+
+===== AFTER: codex max with no model is rejected =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","effort":"max"}}]}
+--- stderr ---
+error: malformed rules file: /tmp/fm-resolver-live.axCJC7/home/config/crew-dispatch.json - each use profile effort must be supported by its harness and model
+--- exit 2 ---
+
+===== AFTER: codex ultra stays rejected (native Pi only) =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"ultra"}}]}
+--- stderr ---
+error: malformed rules file: /tmp/fm-resolver-live.axCJC7/home/config/crew-dispatch.json - each use profile effort must be supported by its harness and model
+--- exit 2 ---
+
+===== AFTER: default profile gpt-6-luna max accepted =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"xhigh"}}],"default":{"harness":"codex","model":"gpt-6-luna","effort":"max"}}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 11   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-6-sol  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+--- exit 0 ---
+
+===== AFTER: absent catalog (CODEX_HOME=/tmp/fm-resolver-live.axCJC7/nohome) -> accepted with one notice =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 13   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-6-sol  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+dispatch-resolve: notice: Codex model catalog not readable: /tmp/fm-resolver-live.axCJC7/nohome/models_cache.json; codex max profiles are accepted, and max is recorded but not passed to codex until the catalog is readable
+--- exit 0 ---
+
+===== AFTER: malformed catalog (CODEX_HOME=/tmp/fm-resolver-live.axCJC7/malformed) -> accepted with one notice =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 12   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-6-sol  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+dispatch-resolve: notice: Codex model catalog is malformed: /tmp/fm-resolver-live.axCJC7/malformed/models_cache.json; codex max profiles are accepted, and max is recorded but not passed to codex until the catalog is readable
+--- exit 0 ---
+
+===== AFTER: absent catalog but no codex max profile -> silent =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"xhigh"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 11   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-6-sol  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+--- exit 0 ---
+
+===== AFTER: absent catalog, gpt-5.5 max -> accepted with notice (catalog unreadable is not a config defect) =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-5.5","effort":"max"}}]}
+dispatch-resolve:
+  status: escalate
+  model: -   latency_ms: 13   tokens: 10/2
+  rule: rule_1 (big feature)   confidence: 0.93
+  probabilities: rule_1=0.93 default=0.07
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: codex:gpt-5.5  provider=codex  -> eligible, unranked: provider codex not in the quota snapshot: disclosed uncertainty
+--- stderr ---
+dispatch-resolve: notice: Codex model catalog not readable: /tmp/fm-resolver-live.axCJC7/nohome/models_cache.json; codex max profiles are accepted, and max is recorded but not passed to codex until the catalog is readable
+--- exit 0 ---

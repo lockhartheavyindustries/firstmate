@@ -1,0 +1,73 @@
+Real catalog: /Users/brianlockhart/.codex/models_cache.json
+
+===== codex gpt-6-sol max, real catalog -> valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+(silent: file valid)
+--- exit 0 ---
+
+===== codex gpt-6-luna max, real catalog -> valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-luna","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+(silent: file valid)
+--- exit 0 ---
+
+===== codex gpt-6-astra max, real catalog -> valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-astra","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+(silent: file valid)
+--- exit 0 ---
+
+===== codex gpt-5.6-terra max, real catalog -> valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-5.6-terra","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+(silent: file valid)
+--- exit 0 ---
+
+===== codex gpt-5.6-luna max, real catalog -> valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-5.6-luna","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+(silent: file valid)
+--- exit 0 ---
+
+===== default profile gpt-6-luna max, real catalog -> valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"xhigh"}}],"default":[{"harness":"codex","model":"gpt-6-luna","effort":"max"}]}
+$ bin/fm-bootstrap.sh
+(silent: file valid)
+--- exit 0 ---
+
+===== codex gpt-5.5 max (catalog stops at xhigh) -> CREW_DISPATCH invalid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-5.5","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+CREW_DISPATCH: invalid config/crew-dispatch.json - invalid effort: codex:max
+--- exit 0 ---
+
+===== codex max without a model -> CREW_DISPATCH invalid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":[{"harness":"codex","effort":"max"}]}]}
+$ bin/fm-bootstrap.sh
+CREW_DISPATCH: invalid config/crew-dispatch.json - invalid effort: codex:max
+--- exit 0 ---
+
+===== codex gpt-6-sol ultra -> CREW_DISPATCH invalid (ultra is Pi-native only) =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"ultra"}}]}
+$ bin/fm-bootstrap.sh
+CREW_DISPATCH: invalid config/crew-dispatch.json - invalid effort: codex:ultra
+--- exit 0 ---
+
+===== absent catalog (CODEX_HOME=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-bootstrap-live-drive.cHYUcF/case/nohome), gpt-6-sol max -> BOOTSTRAP_INFO fact, file valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+BOOTSTRAP_INFO: crew dispatch codex max: Codex model catalog not readable: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-bootstrap-live-drive.cHYUcF/case/nohome/models_cache.json; max is recorded but not passed to codex until the catalog is readable
+--- exit 0 ---
+
+===== malformed catalog (CODEX_HOME=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-bootstrap-live-drive.cHYUcF/case/malformed), gpt-6-sol max -> BOOTSTRAP_INFO fact, file valid =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"max"}}]}
+$ bin/fm-bootstrap.sh
+BOOTSTRAP_INFO: crew dispatch codex max: Codex model catalog is malformed: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-bootstrap-live-drive.cHYUcF/case/malformed/models_cache.json; max is recorded but not passed to codex until the catalog is readable
+--- exit 0 ---
+
+===== absent catalog, no codex max profile -> silent =====
+$ crew-dispatch.json: {"rules":[{"when":"big feature","use":{"harness":"codex","model":"gpt-6-sol","effort":"xhigh"}}]}
+$ bin/fm-bootstrap.sh
+(silent: file valid)
+--- exit 0 ---
