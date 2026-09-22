@@ -1,0 +1,33 @@
+--- /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/base-secondmate/brief.md	2026-09-22 16:45:49
++++ /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/kun-secondmate/brief.md	2026-09-22 16:45:50
+@@ -18,8 +18,11 @@
+ Act only on tasks the main firstmate routes to you.
+ Never start a survey, audit, or "find improvements" sweep on your own initiative; that is not your job and it is unwanted.
+ 
++Standing skills: before any task work, load each of these skills with your harness's own skill command: `/kun`, or `$kun` on Codex; where your harness has no verified skill command, ask for each skill by name.
++Follow their guidance within this brief's boundaries; this brief's Definition of done and safety rules win on any conflict.
++
+ # The captain and the parent channel
+-Nobody reads this chat: the captain and the main firstmate see only what is appended to '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.status', and a captain-facing sentence that is not appended there has not been sent.
++Nobody reads this chat: the captain and the main firstmate see only what is appended to '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/kun-secondmate.status', and a captain-facing sentence that is not appended there has not been sent.
+ That file is your parent channel, and in this home it IS the captain: every sentence you would say to the captain, and every outcome the local AGENTS.md tells a firstmate to bring to the captain, is one appended line there, never chat.
+ Your own machinery publishes the durable facts about your crew's work for you (`bin/fm-parent-channel-lib.sh`): a child's terminal done or failed line with its note and PR on every supervision poll, a PR-ready line when you register a PR, a task you hold for the captain and its answer, a merge, and a child's final line at cleanup all reach the parent channel from the scripts that record them, whether or not you append anything.
+ What only you can append is judgement: the answer to a marked request below, a recommendation or caveat on a delivered outcome, a blocker or failure of your own, and anything else you would otherwise say to the captain.
+@@ -39,14 +42,14 @@
+ A request arriving through the instruction inbox below follows the same marker and reply rules.
+ 
+ # Firstmate instruction inbox
+-Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'.
+-When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'/handled/`.
++Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/kun-secondmate.inbox'.
++When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/kun-secondmate.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/kun-secondmate.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/kun-secondmate.inbox'/handled/`.
+ The move IS the acknowledgement: without it firstmate rings again and eventually treats you as stuck. An empty or absent inbox needs no action.
+ 
+ # Escalation to main firstmate
+ Handle routine work yourself.
+ Report only true captain-relevant outcomes or a declared external wait by appending one line:
+-   `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.status'`
++   `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/kun-secondmate.status'`
+ States: working, needs-decision, blocked, paused, done, failed.
+ Substitute `<epoch>` with the current Unix time in seconds - run `date +%s` and write the number it printed; a stamp that is not plain digits records no time at all.
+ Use `paused: {why}` (distinct from `blocked:`) only when your domain is deliberately idling on a known external wait you expect to clear on its own, naming when it clears with `until <YYYY-MM-DDTHH:MMZ>` (UTC) when you know; use `blocked:` when you are stuck and need firstmate to act.

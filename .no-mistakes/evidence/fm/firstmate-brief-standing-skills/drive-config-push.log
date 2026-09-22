@@ -1,0 +1,61 @@
+== 1. primary config/standing-skills = kun; push ==
+config-push: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-push.gsrzIp/home -> live secondmate homes
+secondmate sm (/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-standing-skills-push.gsrzIp/sm):
+  crew-dispatch.json: unchanged
+  crew-harness: unchanged
+  backlog-backend: unchanged
+  backend: unchanged
+  herdr-presentation-spaces: unchanged
+  startup-memory-budget: unchanged
+  trace-context: unchanged - session-scoped
+  launch-env-allowlist: unchanged
+  claude-permission-mode: unchanged
+  lavish-axi-host: unchanged
+  standing-skills: pushed
+  data/captain-shared.md: unchanged
+CONFIG_REREAD: secondmate sm: send failed: error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+  exit=1
+  secondmate home config/standing-skills: # captain standing skills|kun|
+  secondmate worktree git status (must stay clean): '?? .fm-secondmate-home'
+== 2. brief scaffolded IN the secondmate home carries the paragraph ==
+  line 25:Standing skills: before any task work, load each of these skills with your harness's own skill command: `/kun`, or `$kun` on Codex; where your harness has no verified skill command, ask for each skill by name.
+== 3. unchanged push is a no-op ==
+config-push: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-push.gsrzIp/home -> live secondmate homes
+secondmate sm (/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-standing-skills-push.gsrzIp/sm):
+  crew-dispatch.json: unchanged
+  crew-harness: unchanged
+  backlog-backend: unchanged
+  backend: unchanged
+  herdr-presentation-spaces: unchanged
+  startup-memory-budget: unchanged
+  trace-context: unchanged - session-scoped
+  launch-env-allowlist: unchanged
+  claude-permission-mode: unchanged
+  lavish-axi-host: unchanged
+  standing-skills: unchanged
+  data/captain-shared.md: unchanged
+CONFIG_REREAD: secondmate sm: send failed: error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+  exit=1
+== 4. primary removes the file; push mirrors absence ==
+config-push: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-push.gsrzIp/home -> live secondmate homes
+secondmate sm (/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-standing-skills-push.gsrzIp/sm):
+  crew-dispatch.json: unchanged
+  crew-harness: unchanged
+  backlog-backend: unchanged
+  backend: unchanged
+  herdr-presentation-spaces: unchanged
+  startup-memory-budget: unchanged
+  trace-context: unchanged - session-scoped
+  launch-env-allowlist: unchanged
+  claude-permission-mode: unchanged
+  lavish-axi-host: unchanged
+  standing-skills: pushed - mirrored primary absence
+  data/captain-shared.md: unchanged
+CONFIG_REREAD: secondmate sm: send failed: error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+  exit=1
+  secondmate home config/standing-skills: absent
+  brief in secondmate home now: 0 'Standing skills' occurrences
+== 5. an invalid primary list is copied as-is; the secondmate's scaffold then refuses loudly ==
+  push exit=1; sm file: /kun
+error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-push.gsrzIp/sm/config/standing-skills names an invalid skill '/kun'; list one bare skill name per line, without a / or $ prefix
+  scaffold exit=1

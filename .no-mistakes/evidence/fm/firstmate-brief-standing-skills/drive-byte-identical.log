@@ -1,0 +1,9 @@
+ship       absent=8b9a11420395e3cda8a188a5d569de1f912c72bd2ba48882a0309ed1a4437732
+           comment-only=8b9a11420395e3cda8a188a5d569de1f912c72bd2ba48882a0309ed1a4437732  -> BYTE-IDENTICAL
+           kun=714955c1014f262d393e1f0e70bd63e4ee5f5b6cd1805f30d6cc568e0fdbb992  -> differs-as-expected
+scout      absent=4c5a85c6f274733ee85d548b8b058dfeb2df4f853a7f4062c0c1a595d53ec07a
+           comment-only=4c5a85c6f274733ee85d548b8b058dfeb2df4f853a7f4062c0c1a595d53ec07a  -> BYTE-IDENTICAL
+           kun=5da0a680f9048135db8121fabdc38f7258c7a4e4bcf8a6df9abecb55f8a2ba41  -> differs-as-expected
+secondmate absent=5ba0cb9f6da326736fc23ae83851aa0cbb9bbc22cde9fd465b9c50aa9ec59408
+           comment-only=5ba0cb9f6da326736fc23ae83851aa0cbb9bbc22cde9fd465b9c50aa9ec59408  -> BYTE-IDENTICAL
+           kun=d52838d90bcc7cd0ef79927ee294556864a8204565c996a75b8903bec9ffbb75  -> differs-as-expected

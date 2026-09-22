@@ -1,0 +1,93 @@
+isolated FM_HOME=/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4
+== A. absent list -> baseline briefs ==
+  ship baseline 'Standing skills' occurrences: 0
+  scout baseline 'Standing skills' occurrences: 0
+  secondmate baseline 'Standing skills' occurrences: 0
+== B. comment-only list -> byte-identical ==
+  ship: DIFFERS
+22c22
+< 1. First action: create your branch: `git checkout -b fm/base-ship`
+---
+> 1. First action: create your branch: `git checkout -b fm/skillfree-ship`
+30c30
+<    `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-ship.status'`
+---
+>    `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-ship.status'`
+49,50c49,50
+<    For a no-mistakes ask-user gate specifically, escalate all ask-user findings as one event plus one snapshot file, using that same shape even when the gate holds only a single ask-user finding: write only the ask-user findings, verbatim and unparaphrased (id, severity, file, line, description, authority), to `/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/base-ship/nm-<run>-findings.txt`, then report the gate with
+<    `needs-decision [at=<epoch>] [key=nm-<run>-<step>]: ask-user findings=<id1>,<id2>,... file=/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/base-ship/nm-<run>-findings.txt`
+---
+>    For a no-mistakes ask-user gate specifically, escalate all ask-user findings as one event plus one snapshot file, using that same shape even when the gate holds only a single ask-user finding: write only the ask-user findings, verbatim and unparaphrased (id, severity, file, line, description, authority), to `/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/skillfree-ship/nm-<run>-findings.txt`, then report the gate with
+>    `needs-decision [at=<epoch>] [key=nm-<run>-<step>]: ask-user findings=<id1>,<id2>,... file=/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/skillfree-ship/nm-<run>-findings.txt`
+68,69c68,69
+< Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-ship.inbox'.
+< When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-ship.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-ship.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-ship.inbox'/handled/`.
+---
+> Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-ship.inbox'.
+> When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-ship.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-ship.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-ship.inbox'/handled/`.
+  scout: DIFFERS
+26c26
+<    `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-scout.status'`
+---
+>    `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-scout.status'`
+60,61c60,61
+< Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-scout.inbox'.
+< When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-scout.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-scout.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-scout.inbox'/handled/`.
+---
+> Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-scout.inbox'.
+> When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-scout.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-scout.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-scout.inbox'/handled/`.
+65c65
+< Write your findings to `/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/base-scout/report.md`.
+---
+> Write your findings to `/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/data/skillfree-scout/report.md`.
+  secondmate: DIFFERS
+22c22
+< Nobody reads this chat: the captain and the main firstmate see only what is appended to '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.status', and a captain-facing sentence that is not appended there has not been sent.
+---
+> Nobody reads this chat: the captain and the main firstmate see only what is appended to '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-secondmate.status', and a captain-facing sentence that is not appended there has not been sent.
+42,43c42,43
+< Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'.
+< When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.inbox'/handled/`.
+---
+> Firstmate steers you through durable message files in '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-secondmate.inbox'.
+> When a terminal message says an instruction is waiting there - and at any natural checkpoint when you are unsure - list '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-secondmate.inbox'/*.msg, read and act on each message in numeric order, then acknowledge each handled message by moving it: `mv '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-secondmate.inbox'/NNN.msg '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-secondmate.inbox'/handled/`.
+49c49
+<    `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/base-secondmate.status'`
+---
+>    `echo "{state} [at=<epoch>]: {one short line}" >> '/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/state/skillfree-secondmate.status'`
+== C. standing-skills = kun (the captain's ask) ==
+  --- ship: paragraph count=1; section placement (section heading -> paragraph -> next heading) ---
+1:    # Setup
+11:    Standing skills: before any task work, load each of these skills with your harness's own skill command: `/kun`, or `$kun` on Codex; where your harness has no verified skill command, ask for each skill by name.
+14:    # Rules
+  diff saved: diff-ship-baseline-vs-kun.diff (8 added lines)
+  --- scout: paragraph count=1; section placement (section heading -> paragraph -> next heading) ---
+1:    # Setup
+7:    Standing skills: before any task work, load each of these skills with your harness's own skill command: `/kun`, or `$kun` on Codex; where your harness has no verified skill command, ask for each skill by name.
+10:    # Rules
+  diff saved: diff-scout-baseline-vs-kun.diff (6 added lines)
+  --- secondmate: paragraph count=1; section placement (section heading -> paragraph -> next heading) ---
+1:    # Operating model
+10:    Standing skills: before any task work, load each of these skills with your harness's own skill command: `/kun`, or `$kun` on Codex; where your harness has no verified skill command, ask for each skill by name.
+13:    # The captain and the parent channel
+  diff saved: diff-secondmate-baseline-vs-kun.diff (6 added lines)
+== D. two skills incl. plugin-namespaced, trailing comment, odd whitespace ==
+  Standing skills: before any task work, load each of these skills with your harness's own skill command: `/kun`, `/plugin:review-kit`, or `$kun`, `$plugin:review-kit` on Codex; where your harness has no verified skill command, ask for each skill by name.
+  no per-harness enumeration in the paragraph (review decision honoured)
+== E. adversarial: invalid names must refuse and leave nothing behind ==
+  [/lavish] rc=1 data/bad-1=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill '/lavish'; list one bare skill name per line, without a / or $ prefix
+  [$kun] rc=1 data/bad-2=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill '$kun'; list one bare skill name per line, without a / or $ prefix
+  [kun run] rc=1 data/bad-3=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill 'kun run'; list one bare skill name per line, without a / or $ prefix
+  [-kun] rc=1 data/bad-4=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill '-kun'; list one bare skill name per line, without a / or $ prefix
+  [kun;rm -rf x] rc=1 data/bad-5=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill 'kun;rm -rf x'; list one bare skill name per line, without a / or $ prefix
+  [kun`id`] rc=1 data/bad-6=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill 'kun`id`'; list one bare skill name per line, without a / or $ prefix
+  [../kun] rc=1 data/bad-7=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill '../kun'; list one bare skill name per line, without a / or $ prefix
+  [kùn] rc=1 data/bad-8=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills names an invalid skill 'kùn'; list one bare skill name per line, without a / or $ prefix
+== F. adversarial: unusable path ==
+  directory: rc=1 data=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills must be a readable regular file
+  dangling symlink: rc=1 data=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills must be a readable regular file
+  symlink to a real file: accepted, paragraph count=1
+  mode-000 file: rc=1 data=absent :: error: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-standing-skills-live.GI8Ub4/config/standing-skills must be a readable regular file
+== G. no trailing newline on last line still counts ==
+  paragraph count=1
+done
