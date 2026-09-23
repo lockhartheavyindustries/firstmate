@@ -1,0 +1,50 @@
+
+===== SCENARIO 1: incident repro - old task's worker exited, record still names slot 1; pool hands slot 1 to a new task =====
+$ fm-spawn.sh openclaw-fallback-chain-astra <project> --scout
+spawned openclaw-fallback-chain-astra harness=codex kind=scout window=firstmate:fm-openclaw-fallback-chain-astra worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/incident/slots/1/project
+exit=0
+--- slot claim after spawn:
+task=openclaw-fallback-chain-astra
+home=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/incident/home
+--- old record after spawn (openclaw-cron-optimization-checker-count.meta):
+window=firstmate:fm-openclaw-cron-optimization-checker-count
+endpoint_task_id=openclaw-cron-optimization-checker-count
+worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/incident/slots/1/project
+project=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/incident/project
+kind=ship
+mode=no-mistakes
+yolo=off
+pr=https://github.com/example/project/pull/7
+pr_head=8ed94a24839d2e210dc87cf724cba5dea4c199c3
+--- $ fm-crew-state.sh openclaw-cron-optimization-checker-count
+state: unknown · source: pane · harness state unavailable (unknown missing)
+--- $ fm-spawn.sh openclaw-cron-optimization-checker-count --relaunch
+error: task openclaw-cron-optimization-checker-count's recorded endpoint firstmate:fm-openclaw-cron-optimization-checker-count reads 'missing', but tmux absence cannot be proven from a task record: the record does not carry the endpoint's socket identity, and a server-wide window inventory only describes the tmux server this process addresses, so a window absent from it may still be alive on another. An endpoint that cannot be proven absent may still hold a live agent on this task's worktree; refusing rather than launching a second agent into it
+exit=1
+--- $ fm-teardown.sh openclaw-fallback-chain-astra --force   (the teardown that was refused on 2026-09-23)
+REFUSED: task openclaw-fallback-chain-astra's recorded worktree /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/incident/slots/1/project is also task openclaw-cron-optimization-checker-count's recorded worktree.
+Returning that pool slot would kill openclaw-cron-optimization-checker-count's processes and reset its copy, so nothing was changed - not even with --force.
+Reconcile whichever record is wrong (bin/fm-crew-state.sh openclaw-fallback-chain-astra; bin/fm-crew-state.sh openclaw-cron-optimization-checker-count), then re-run teardown.
+exit=1
+--- new record gone? NO-still-present
+--- slot handed on again to later-task; $ fm-teardown.sh openclaw-cron-optimization-checker-count
+REFUSED: task openclaw-cron-optimization-checker-count's recorded worktree /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/incident/slots/1/project is also task openclaw-fallback-chain-astra's recorded worktree.
+Returning that pool slot would kill openclaw-fallback-chain-astra's processes and reset its copy, so nothing was changed - not even with --force.
+Reconcile whichever record is wrong (bin/fm-crew-state.sh openclaw-cron-optimization-checker-count; bin/fm-crew-state.sh openclaw-fallback-chain-astra), then re-run teardown.
+exit=1
+--- later-task's file survived old cleanup? yes
+--- claim still names later-task? 1
+
+===== SCENARIO 2 (adversarial): a secondmate record naming the same slot is a genuine collision, not retired =====
+$ fm-spawn.sh adv-new-task <project> --scout
+spawned adv-new-task harness=codex kind=scout window=firstmate:fm-adv-new-task worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/adv-secondmate/slots/1/project
+exit=0
+--- secondmate record reassigned marker present? 0
+--- $ fm-teardown.sh adv-new-task --force
+REFUSED: task adv-new-task's recorded worktree /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/adv-secondmate/slots/1/project is also task adv-secondmate's recorded worktree.
+exit=1
+
+===== SCENARIO 3 (adversarial): an unrelated record on a different slot is left untouched =====
+spawned adv-other-new harness=codex kind=scout window=firstmate:fm-adv-other-new worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.eP2I5D/adv-other/slots/1/project
+exit=0
+--- other-slot record unchanged: yes

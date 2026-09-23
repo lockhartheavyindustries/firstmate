@@ -1,0 +1,52 @@
+
+===== SCENARIO 1: incident repro - old task's worker exited, record still names slot 1; pool hands slot 1 to a new task =====
+$ fm-spawn.sh openclaw-fallback-chain-astra <project> --scout
+note: task openclaw-cron-optimization-checker-count's record named pool slot /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/slots/1/project, which task openclaw-fallback-chain-astra has now claimed; marked it reassigned so it no longer claims that slot
+spawned openclaw-fallback-chain-astra harness=codex kind=scout window=firstmate:fm-openclaw-fallback-chain-astra worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/slots/1/project
+exit=0
+--- slot claim after spawn:
+task=openclaw-fallback-chain-astra
+home=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/home
+--- old record after spawn (openclaw-cron-optimization-checker-count.meta):
+window=firstmate:fm-openclaw-cron-optimization-checker-count
+endpoint_task_id=openclaw-cron-optimization-checker-count
+worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/slots/1/project
+project=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/project
+kind=ship
+mode=no-mistakes
+yolo=off
+pr=https://github.com/example/project/pull/7
+pr_head=d5d26148ec4143921cddfedfd5dfa09a61aed57c
+worktree_reassigned_to=openclaw-fallback-chain-astra
+--- $ fm-crew-state.sh openclaw-cron-optimization-checker-count
+state: unknown · source: none · worktree reassigned to task openclaw-fallback-chain-astra
+--- $ fm-spawn.sh openclaw-cron-optimization-checker-count --relaunch
+error: task openclaw-cron-optimization-checker-count's recorded pool slot was reassigned to task openclaw-fallback-chain-astra; refusing to relaunch an agent into another task's copy
+exit=1
+--- $ fm-teardown.sh openclaw-fallback-chain-astra --force   (the teardown that was refused on 2026-09-23)
+teardown openclaw-fallback-chain-astra complete (window firstmate:fm-openclaw-fallback-chain-astra, worktree /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/slots/1/project)
+Backlog: openclaw-fallback-chain-astra just finished (this home keeps no markdown backlog at /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/home/data/backlog.md). Update /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/home/data/backlog.md - move openclaw-fallback-chain-astra to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+exit=0
+--- new record gone? yes
+--- slot handed on again to later-task; $ fm-teardown.sh openclaw-cron-optimization-checker-count
+warning: task openclaw-cron-optimization-checker-count's recorded worktree /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/slots/1/project was reassigned to task openclaw-fallback-chain-astra, which claimed that pool slot after this record was written; that slot is no longer openclaw-cron-optimization-checker-count's, so its processes, copy, and claim are left untouched and only openclaw-cron-optimization-checker-count's own cleanup runs.
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/project: synced d5d2614..97c33d6
+teardown openclaw-cron-optimization-checker-count complete (window firstmate:fm-openclaw-cron-optimization-checker-count; pool slot /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/slots/1/project left to task openclaw-fallback-chain-astra, which it was reassigned to)
+Backlog: openclaw-cron-optimization-checker-count just finished (this home keeps no markdown backlog at /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/home/data/backlog.md). Update /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/incident/home/data/backlog.md - move openclaw-cron-optimization-checker-count to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+exit=0
+--- later-task's file survived old cleanup? yes
+--- claim still names later-task? 1
+
+===== SCENARIO 2 (adversarial): a secondmate record naming the same slot is a genuine collision, not retired =====
+$ fm-spawn.sh adv-new-task <project> --scout
+spawned adv-new-task harness=codex kind=scout window=firstmate:fm-adv-new-task worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/adv-secondmate/slots/1/project
+exit=0
+--- secondmate record reassigned marker present? 0
+--- $ fm-teardown.sh adv-new-task --force
+REFUSED: task adv-new-task's recorded worktree /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/adv-secondmate/slots/1/project is also task adv-secondmate's recorded worktree.
+exit=1
+
+===== SCENARIO 3 (adversarial): an unrelated record on a different slot is left untouched =====
+spawned adv-other-new harness=codex kind=scout window=firstmate:fm-adv-other-new worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.57B22M/adv-other/slots/1/project
+exit=0
+--- other-slot record unchanged: yes
