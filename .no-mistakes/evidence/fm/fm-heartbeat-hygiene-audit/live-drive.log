@@ -1,0 +1,78 @@
+Automatic merge went well; stopped before committing as requested
+
+===== fm-hygiene-audit.sh (text) =====
+CLEANUP action slot-claimed-by-other: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha - task record dup-task names this copy, but its slot claim names task newer-task (claim home <scratch>/home)
+CLEANUP action shared-copy: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha - task records dup-task newer-task all name this copy
+CLEANUP action slot-claimed-by-other: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/1/alpha - task record stale-task names this copy, but its slot claim names task newer-task (claim home <scratch>/home)
+CLEANUP action dirty-orphan-copy: alpha /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/2/alpha - a copy no task record names has uncommitted changes ( M README)
+CLEANUP action unlanded-branch: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/home fm/docs-tweak 1 commit(s) - no task record owns this branch and its commits are on no remote and not on main; bin/fm-hygiene-audit.sh --pr-lookup checks for a merged pull request
+CLEANUP routine clone-behind: alpha main /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/home/projects/alpha 10 commit(s) - local main is behind origin/main as of the last fetch; refresh with bin/fm-fleet-sync.sh alpha
+CLEANUP info landed-branch: alpha fm/squashed-a 2 commit(s) - unowned local branch with commits on no remote whose content already landed (content already on main (squash landing))
+CLEANUP info landed-branch: alpha fm/squashed-b 1 commit(s) - unowned local branch with commits on no remote whose content already landed (patch-equivalent commits on main)
+
+===== fm-hygiene-audit.sh --json (class/severity/where) =====
+repos_scanned=2 truncated=0
+action	slot-claimed-by-other	null	/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha	task=dup-task	commits=null	evidence=claim home /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-hyg-live.QCuQJI/home
+action	shared-copy	null	/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha	task=dup-task	commits=null	evidence=null
+action	slot-claimed-by-other	null	/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/1/alpha	task=stale-task	commits=null	evidence=claim home /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-hyg-live.QCuQJI/home
+action	dirty-orphan-copy	alpha	/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/2/alpha	task=null	commits=null	evidence= M README
+action	unlanded-branch	/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/home	fm/docs-tweak	task=docs-tweak	commits=1	evidence=null
+routine	clone-behind	alpha	main	task=null	commits=10	evidence=null
+info	landed-branch	alpha	fm/squashed-a	task=squashed-a	commits=2	evidence=content already on main (squash landing)
+info	landed-branch	alpha	fm/squashed-b	task=squashed-b	commits=1	evidence=patch-equivalent commits on main
+
+===== fm-fleet-view.sh (heartbeat review) - Cleanup section =====
+## Cleanup
+| Severity | Finding | Repo | Branch / Path | Task | Commits | Detail |
+| --- | --- | --- | --- | --- | --- | --- |
+| action | slot-claimed-by-other | - | /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha | dup-task | - | task record dup-task names this copy, but its slot claim names task newer-task (claim home <scratch>/home) |
+| action | shared-copy | - | /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha | dup-task | - | task records dup-task newer-task all name this copy |
+| action | slot-claimed-by-other | - | /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/1/alpha | stale-task | - | task record stale-task names this copy, but its slot claim names task newer-task (claim home <scratch>/home) |
+| action | dirty-orphan-copy | alpha | /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/2/alpha | - | - | a copy no task record names has uncommitted changes ( M README) |
+| action | unlanded-branch | /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/home | fm/docs-tweak | docs-tweak | 1 | no task record owns this branch and its commits are on no remote and not on main; bin/fm-hygiene-audit.sh --pr-lookup checks for a merged pull request; backlog docs-tweak is queued |
+| routine | clone-behind | alpha | main | - | 10 | local main is behind origin/main as of the last fetch; refresh with bin/fm-fleet-sync.sh alpha |
+2 unowned local branch(es) already landed; safe to prune once reviewed.
+
+## Secondmates
+
+===== read-only check: repo refs, worktrees, dirty status, claims unchanged =====
+UNCHANGED
+
+===== watcher: first heartbeat with new cleanup findings =====
+[first-heartbeat] watcher kept running; heartbeat absorbed (streak=1); wake output: 'heartbeat'
+[first-heartbeat] .hygiene-surfaced now holds 6 finding keys
+clone-behind alpha main /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/home/projects/alpha 
+dirty-orphan-copy alpha  /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/2/alpha 
+shared-copy   /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha dup-task
+slot-claimed-by-other   /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/1/alpha stale-task
+slot-claimed-by-other   /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/pool/3/alpha dup-task
+unlanded-branch /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-hyg-live.QCuQJI/home fm/docs-tweak  docs-tweak
+(captain drained and acked the heartbeat wake)
+
+===== watcher: next heartbeat, same standing findings =====
+[standing] watcher kept running; heartbeat absorbed (streak=1); wake output: ''
+[standing] .hygiene-surfaced now holds 6 finding keys
+
+===== watcher adversarial: audit fails (invalid bound) - must wake nothing and keep the surfaced set =====
+[audit-failure] watcher kept running; heartbeat absorbed (streak=1); wake output: ''
+[audit-failure] .hygiene-surfaced now holds 6 finding keys
+surfaced set UNCHANGED after audit failure
+
+===== watcher adversarial: audit disabled (FM_HEARTBEAT_HYGIENE=0) =====
+[disabled] watcher kept running; heartbeat absorbed (streak=1); wake output: ''
+[disabled] .hygiene-surfaced now holds 6 finding keys
+surfaced set UNCHANGED while disabled
+
+===== watcher: after the failure, the standing set still does not re-wake =====
+[post-failure] watcher kept running; heartbeat absorbed (streak=1); wake output: ''
+[post-failure] .hygiene-surfaced now holds 6 finding keys
+
+===== watcher: a NEW leftover appears (another unpushed fm/* branch) =====
+[new-finding] watcher kept running; heartbeat absorbed (streak=1); wake output: 'heartbeat'
+[new-finding] .hygiene-surfaced now holds 7 finding keys
+(captain drained and acked the heartbeat wake)
+
+===== watcher: a finding clears (clone refreshed) - drops out of the surfaced set, no wake =====
+[cleared] watcher kept running; heartbeat absorbed (streak=1); wake output: ''
+[cleared] .hygiene-surfaced now holds 6 finding keys
+clone-behind keys remaining: 0

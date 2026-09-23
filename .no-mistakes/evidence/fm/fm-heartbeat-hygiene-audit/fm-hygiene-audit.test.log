@@ -1,0 +1,8 @@
+ok - a clean home reports nothing
+ok - stale, unreadable, and shared copy claims are reported
+ok - dirty pool copies no task owns are reported and left untouched
+ok - unowned unpushed branches split into landed leftovers and unlanded work offline
+ok - merged-PR landings are gated behind --pr-lookup, bounded, and remembered per tip
+ok - clone lag is a routine refresh item
+ok - findings are bounded and bounds are validated
+ok - the heartbeat fleet view surfaces cleanup findings from the snapshot
