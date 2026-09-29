@@ -1,0 +1,46 @@
+===== HEAD (49c5f6f) : fm-dispatch-resolve.sh, real quota-axi, real crew-dispatch.json rules, stubbed classifier -> rule_5 =====
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 143   tokens: 800/60
+  rule: rule_5 (The task is a bounded, well-specified change with clear acce)   confidence: 0.95
+  probabilities: rule_1=0.01 rule_2=0.01 rule_3=0.01 rule_4=0.01 rule_5=0.93 rule_6=0.01 rule_7=0.01 default=0.01
+  note: rule matched
+  note: 4 eligible candidate(s) unranked (deepseek, minimax, venice, zai)
+  candidate: codex:gpt-6-sol  provider=codex  scope=all_models  remaining=83%  spendPriority=0.9202  runway=through_reset  -> eligible
+  candidate: claude:claude-sonnet-5-5  provider=claude  scope=all_models  remaining=82%  spendPriority=0.6585  runway=through_reset  -> eligible
+  candidate: opencode:zai-coding-plan/glm-5.3  provider=zai  scope=all_models  remaining=99%  spendPriority=-  runway=through_reset  -> eligible, unranked: spendPriority missing or non-numeric at all_models: not rankable: disclosed uncertainty
+  candidate: opencode:deepseek/deepseek-v4-pro  provider=deepseek  -> eligible, unranked: provider deepseek unmeasured (unknown): disclosed uncertainty
+  candidate: opencode:venice/kimi-k3  provider=venice  -> eligible, unranked: provider venice not in the quota snapshot: disclosed uncertainty
+  candidate: opencode:minimax-coding-plan/MiniMax-M3  provider=minimax  -> eligible, unranked: no applicable quota row for provider minimax: disclosed uncertainty
+  candidate: cursor:grok-4.7-high  provider=cursor  scope=grok_bot  remaining=100%  spendPriority=17.3352  runway=through_reset  -> eligible
+  profile: --harness 'cursor' --model 'grok-4.7-high'
+(exit 0)
+===== base (c5f48e4) : fm-dispatch-resolve.sh, real quota-axi, real crew-dispatch.json rules, stubbed classifier -> rule_5 =====
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 16   tokens: 800/60
+  rule: rule_5 (The task is a bounded, well-specified change with clear acce)   confidence: 0.95
+  probabilities: rule_1=0.01 rule_2=0.01 rule_3=0.01 rule_4=0.01 rule_5=0.93 rule_6=0.01 rule_7=0.01 default=0.01
+  note: rule matched
+  note: 4 eligible candidate(s) unranked (deepseek, minimax, venice, zai)
+  candidate: codex:gpt-6-sol  provider=codex  scope=all_models  remaining=83%  spendPriority=0.9202  runway=through_reset  -> eligible
+  candidate: claude:claude-sonnet-5-5  provider=claude  scope=all_models  remaining=82%  spendPriority=0.6586  runway=through_reset  -> eligible
+  candidate: opencode:zai-coding-plan/glm-5.3  provider=zai  scope=all_models  remaining=99%  spendPriority=-  runway=through_reset  -> eligible, unranked: spendPriority missing or non-numeric at all_models: not rankable: disclosed uncertainty
+  candidate: opencode:deepseek/deepseek-v4-pro  provider=deepseek  -> eligible, unranked: provider deepseek unmeasured (unknown): disclosed uncertainty
+  candidate: opencode:venice/kimi-k3  provider=venice  -> eligible, unranked: provider venice not in the quota snapshot: disclosed uncertainty
+  candidate: opencode:minimax-coding-plan/MiniMax-M3  provider=minimax  -> eligible, unranked: no applicable quota row for provider minimax: disclosed uncertainty
+  candidate: cursor:grok-4.7-high  provider=cursor  scope=all_models  remaining=0%  spendPriority=-  runway=exhausted_now  -> not eligible: runway exhausted_now at all_models
+  profile: --harness 'codex' --model 'gpt-6-sol' --effort 'medium'
+(exit 0)
+===== HEAD: classifier -> rule_2 (non-Grok cursor:composer-2.5 must stay bound to exhausted all_models) =====
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 15   tokens: 800/60
+  rule: rule_2 (The task is a trivial mechanical edit such as a rote rename,)   confidence: 0.95
+  probabilities: rule_1=0.01 rule_2=0.93 rule_3=0.01 rule_4=0.01 rule_5=0.01 rule_6=0.01 rule_7=0.01 default=0.01
+  note: rule matched
+  candidate: claude:claude-sonnet-5-5  provider=claude  scope=all_models  remaining=82%  spendPriority=0.6587  runway=through_reset  -> eligible
+  candidate: codex:gpt-6-luna  provider=codex  scope=all_models  remaining=83%  spendPriority=0.9202  runway=through_reset  -> eligible
+  candidate: cursor:composer-2.5  provider=cursor  scope=all_models  remaining=0%  spendPriority=-  runway=exhausted_now  -> not eligible: runway exhausted_now at all_models
+  profile: --harness 'codex' --model 'gpt-6-luna' --effort 'medium'
+(exit 0)

@@ -1,0 +1,22 @@
+===== base c5f48e4 (real quota-axi, stubbed typesafe API)
+dispatch-resolve:
+  status: escalate
+  model: jev-1.13.0   latency_ms: 247   tokens: 10/5
+  rule: rule_1 (A simple bug fix with a stated root cause.)   confidence: 0.95
+  probabilities: rule_1=0.95 default=0.05
+  reason: no rankable eligible candidate
+  note: rule matched
+  candidate: cursor:composer-2  provider=cursor  scope=all_models  remaining=0%  spendPriority=-  runway=exhausted_now  -> not eligible: runway exhausted_now at all_models
+  candidate: cursor:grok-4.7-high  provider=cursor  scope=all_models  remaining=0%  spendPriority=-  runway=exhausted_now  -> not eligible: runway exhausted_now at all_models
+(exit 0)
+===== head 238f51d (real quota-axi, stubbed typesafe API)
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 16   tokens: 10/5
+  rule: rule_1 (A simple bug fix with a stated root cause.)   confidence: 0.95
+  probabilities: rule_1=0.95 default=0.05
+  note: rule matched
+  candidate: cursor:composer-2  provider=cursor  scope=all_models  remaining=0%  spendPriority=-  runway=exhausted_now  -> not eligible: runway exhausted_now at all_models
+  candidate: cursor:grok-4.7-high  provider=cursor  scope=grok_bot  remaining=100%  spendPriority=17.1583  runway=through_reset  -> eligible
+  profile: --harness 'cursor' --model 'grok-4.7-high'
+(exit 0)

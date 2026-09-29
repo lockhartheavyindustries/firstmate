@@ -1,0 +1,23 @@
+== cursor:grok-4.7-high
+base c5f48e4: none
+ (exit 1)
+head 238f51d: cursor grok-4.7-high
+ (exit 0)
+== cursor:grok-4.7-medium
+base c5f48e4: none
+ (exit 1)
+head 238f51d: cursor grok-4.7-medium
+ (exit 0)
+== cursor:cursor-grok-4.6-medium
+base c5f48e4: none
+ (exit 1)
+head 238f51d: cursor cursor-grok-4.6-medium
+ (exit 0)
+== cursor:composer-2
+base c5f48e4: none
+ (exit 1)
+head 238f51d: none
+ (exit 1)
+== ranked: composer-2 then grok-4.7-high
+cursor grok-4.7-high
+ (exit 0)

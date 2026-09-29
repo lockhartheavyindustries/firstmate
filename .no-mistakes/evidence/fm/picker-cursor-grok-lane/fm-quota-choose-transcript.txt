@@ -1,0 +1,39 @@
+=== HEAD: live quota-axi snapshot ===
+cursor:grok-4.7-high               -> cursor grok-4.7-high
+ (exit 0)
+cursor:grok-4.7-medium             -> cursor grok-4.7-medium
+ (exit 0)
+cursor:cursor-grok-4.6-medium      -> cursor cursor-grok-4.6-medium
+ (exit 0)
+cursor:composer-2                  -> none
+ (exit 1)
+cursor:gpt-5                       -> none
+ (exit 1)
+ranked composer-2,grok-4.7-high -> cursor grok-4.7-high
+ (exit 0)
+=== base: live quota-axi snapshot ===
+cursor:grok-4.7-high               -> none
+ (exit 1)
+cursor:grok-4.7-medium             -> none
+ (exit 1)
+cursor:cursor-grok-4.6-medium      -> none
+ (exit 1)
+cursor:composer-2                  -> none
+ (exit 1)
+cursor:gpt-5                       -> none
+ (exit 1)
+ranked composer-2,grok-4.7-high -> none
+ (exit 1)
+=== HEAD: live snapshot with grok_bot row removed (adversarial) ===
+cursor:grok-4.7-high               -> none
+ (exit 1)
+cursor:grok-4.7-medium             -> none
+ (exit 1)
+=== HEAD: grok_bot exhausted, all_models open (adversarial) ===
+cursor:grok-4.7-high               -> none
+ (exit 1)
+cursor:composer-2                  -> cursor composer-2
+ (exit 0)
+=== HEAD: live quota-axi piped on stdin ===
+cursor grok-4.7-high
+ (exit 0)

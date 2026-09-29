@@ -1,0 +1,21 @@
+ok - absent key is off: one stderr line, exit 0, no network call
+ok - TYPESAFE_API_KEY= in .env activates the tool; environment and config overrides work
+ok - clear: one rule Choice request, key on the fd header only, spendPriority argmax over every candidate
+ok - never-send list withholds the request on a match or a bad list, and never prints the value
+ok - rules snapshots and shell quoting preserve the profile protocol
+ok - no-rule fallback, Agy, Gemini, and documented configurations resolve
+ok - ambiguous: confidence below the fixed floor hands the decision back
+not ok - the runner-up clears the same floor it would need as the pick (missing: '  fallback: rule_4 (A simple bug fix with a stated root cause.) probability 0.30 clears its floor 0.3; rule_2 probability 0.55 is below its floor 0.9')
+--- output ---
+dispatch-resolve:
+  status: clear
+  model: jev-1.13.0   latency_ms: 18   tokens: 812/60
+  rule: rule_2 (The task generates images.)   confidence: 0.95
+  probabilities: rule_1=0.05 rule_2=0.55 rule_3=0.05 rule_4=0.3 default=0.05
+  fallback: rule_4 (A simple bug fix with a stated root cause.) probability 0.3 clears its floor 0.3; rule_2 probability 0.55 is below its floor 0.9
+  note: rule matched
+  note: 1 eligible candidate(s) unranked (kimi)
+  candidate: claude:sonnet  provider=claude  scope=all_models  remaining=79%  spendPriority=-0.4627  runway=projected_exhaustion  -> eligible
+  candidate: cursor:cursor-grok-4.6-medium  provider=cursor  scope=all_models  remaining=91%  spendPriority=0.7597  runway=through_reset  -> eligible
+  candidate: kimi:kimi-code/k3  provider=kimi  -> eligible, unranked: provider kimi unmeasured (unknown): disclosed uncertainty
+  profile: --harness 'cursor' --model 'cursor-grok-4.6-medium'

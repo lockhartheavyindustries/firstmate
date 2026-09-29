@@ -1,0 +1,12 @@
+ok - schema 6: each candidate binds to its account row; schema 5 is unchanged
+ok - quota evidence comes from one quota-axi --json read, and its failure is an error outcome
+ok - API, transport, and response failures are error outcomes with exit 0
+ok - configuration errors exit 2 before any network call
+# all fm-dispatch-resolve tests passed
+exit 
+ok - schema 6 requires accountKey on every row and uniqueness on provider + accountKey
+ok - Cursor Grok binds to grok_bot when reported and other Cursor models keep all_models
+ok - schema 6 TOON with the accountKey column is accepted
+ok - helper reuses the captured quota snapshot
+# all fm-quota-choose tests passed
+exit 

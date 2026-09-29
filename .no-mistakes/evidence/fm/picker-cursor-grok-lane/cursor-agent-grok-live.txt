@@ -1,0 +1,3 @@
+$ cursor-agent -p --model grok-4.7-high --trust "Reply with exactly: GROK-LANE-OK"
+GROK-LANE-OK
+(exit 0)
