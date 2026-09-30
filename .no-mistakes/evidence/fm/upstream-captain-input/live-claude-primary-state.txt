@@ -1,0 +1,55 @@
+== note created epoch (id prefix): 1790745272
+== note file mtime / handoff mtime / ack mtime (epoch.ms):
+  inbox/handled/1790745272-yMaosp.note: 1790745272.540
+  .input-handoff/1790745272-yMaosp: 1790745273.561
+  .input-ack/1790745272-yMaosp: 1790745290.102
+  .captain-input-notify: 1790745272.628
+== input-receipts:
+{
+    "schema": "fm-input-receipts.v1",
+    "registered": true,
+    "records": [
+        {
+            "note_id": "1790745272-yMaosp",
+            "handoff": {
+                "sequence": "1",
+                "generation": "1",
+                "session_pid": "1021",
+                "recovery_generation": "42932.1790745272.sCZrBy",
+                "committed": true
+            },
+            "ack": {
+                "sequence": "1",
+                "recovery_generation": "42932.1790745272.sCZrBy"
+            },
+            "queue_acknowledged": true,
+            "note_handled": true
+        }
+    ]
+}
+== wake queue (should be empty):
+---
+== watcher delivery / cycle ledger:
+arm_pid=24295	watcher_pid=24386	origin=started	started_at=1790745214	ended_at=1790745272	exit_code=0	signal=none	reason=actionable-check	beacon_age=12	lock_before=pid:24386|identity:Tue Sep 29 23:13:34 2026     bash /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.57xSuE/checkout/bin/fm-watch.sh	lock_after=pid:none|identity:none	successor=started:43274
+== reply recorded for the listener:
+handled
+
+/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.57xSuE/state/inbox/handled:
+1790745272-yMaosp.note
+(eval):16: no matches found: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.57xSuE/state/inbox/replies/*
+== re-armed watcher after handling turn (continuity):
+43251       02:00 bash /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.57xSuE/checkout/bin/fm-watch-arm.sh
+43274       02:00 bash /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.57xSuE/checkout/bin/fm-watch.sh
+47741       01:41 bash /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.57xSuE/checkout/bin/fm-watch-arm.sh
+== listener-visible reply receipts:
+{"schema":"fm-inbox-receipts.v1","home":"T/fm-lab.57xSuE","generated":"2026-09-30T05:17:22Z","pending":[],"handled":[{"id":"1790745272-yMaosp","at":"2026-09-30T05:14:32Z","source":"text","request_id":"chat-msg-0001","body":"Captain here: what is the fleet status?","acknowledged":true,"announced":true,"reply":{"id":"1790745272-yMaosp","at":"2026-09-30T05:14:44Z","body":"Fleet is idle, no work under way.","cursor":"000000000001"}}],"replies":[{"id":"1790745272-yMaosp","at":"2026-09-30T05:14:44Z","body":"Fleet is idle, no work under way.","cursor":"000000000001"}],"reply_cursor":"000000000001","omitted":[]}
+
+== duplicate delivery of chat-msg-0001 (listener retry):
+{"schema":"fm-inbox-note.v1","outcome":"replay","id":"1790745272-yMaosp","request_id":"chat-msg-0001","saved":true,"announced":true,"acknowledged":false,"path":"/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.57xSuE/state/inbox/handled/1790745272-yMaosp.note"}
+
+== queue after retry:
+---
+== cycle ledger 40s+ later (one actionable delivery expected):
+arm_pid=24295	watcher_pid=24386	origin=started	started_at=1790745214	ended_at=1790745272	exit_code=0	signal=none	reason=actionable-check	beacon_age=12	lock_before=pid:24386|identity:Tue Sep 29 23:13:34 2026     bash /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.57xSuE/checkout/bin/fm-watch.sh	lock_after=pid:none|identity:none	successor=started:43274
+== handoff receipts:
+1790745272-yMaosp

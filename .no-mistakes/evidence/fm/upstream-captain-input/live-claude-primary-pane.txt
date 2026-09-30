@@ -1,0 +1,40 @@
+
+ ▐▛███▛█   Claude Code v2.1.285
+▝▜██████▀  Haiku 4.5 · Claude Max
+ ▝▝   ▝▝   /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.57xSuE/checkout
+
+⚠ AGENTS.md is over the 40.0k-char limit (48.0k chars) · /memory to free up context
+
+❯ This is a disposable lab test. Run exactly these two commands with Bash, one at a time: bin/fm-lock.sh  then
+  bin/fm-inbox.sh subscribe . Then reply "subscribed" and end your turn. When later woken by a firstmate watcher wake
+  about a captain inbox note: run bin/fm-wake-drain.sh, read the note with bin/fm-inbox.sh list, reply to it with
+  bin/fm-inbox.sh reply <id> "got it", run bin/fm-inbox.sh drain --ack <id>, then run the exact WAKE_ACK_REQUIRED
+  --ack-through command, and end your turn.
+
+  Ran 2 shell commands
+
+⏺ Subscribed.
+
+✻ Brewed for 6s · done 11:13 PM
+
+⏺ Stop hook feedback
+
+  Ran 6 shell commands
+
+⏺ Captain, shipshape. Fleet is idle with no work under way.
+
+✻ Worked for 14s · done 11:14 PM
+
+
+
+
+
+
+
+
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ⏱ 7d ↑7%
+  ⏸ manual mode on · ← for agents

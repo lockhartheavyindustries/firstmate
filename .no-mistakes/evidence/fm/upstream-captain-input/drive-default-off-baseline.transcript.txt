@@ -1,0 +1,2 @@
+default-off: 5s after note, watcher still sleeping: yes; stdout=[]; doorbell file: absent
+queue: 1790744911	1	check	inbox:1790744911-b3QVl9	check: captain inbox note 1790744911-b3QVl9 - default-off note

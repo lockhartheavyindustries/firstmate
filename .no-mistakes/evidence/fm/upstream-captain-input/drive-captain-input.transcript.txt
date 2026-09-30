@@ -1,0 +1,122 @@
+
+=== S1 default-off: note without subscription keeps legacy behavior
+needed=false
+$ bin/fm-inbox.sh note --request-id legacy-1 LEGACY_BODY hello
+queued 1790744890-aZR2E7
+  LEGACY_BODY hello
+  firstmate will pick this up at its next check.
+[exit 0]
+--- state/.wake-queue:
+1790744890	1	check	inbox:1790744890-aZR2E7	check: captain inbox note 1790744890-aZR2E7 - LEGACY_BODY hello
+---
+no doorbell file (expected)
+$ bin/fm-inbox.sh drain --ack ../bogus no-such-id
+already-acked ../bogus
+already-acked no-such-id
+[exit 0]
+$ bin/fm-inbox.sh drain --ack 1790744890-aZR2E7
+acked 1790744890-aZR2E7
+[exit 0]
+$ bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 26691.1790744890.olOAq9
+[exit 0]
+--- state/.wake-queue:
+---
+
+=== S2 lock: this Claude session (real harness ancestry) takes the lab session lock
+$ bin/fm-lock.sh
+lock acquired: harness pid 2092
+[exit 0]
+$ bin/fm-lock.sh status
+lock: held by live harness pid 2092
+[exit 0]
+
+=== S3 non-owner (detached daemon-style process) may not subscribe
+fm-inbox: only the owning session may change the input subscription
+[registration file present? no]
+
+=== S4 owner subscribes: idle home now demands supervision with zero tasks
+needed=false
+$ bin/fm-inbox.sh subscribe
+[exit 0]
+v1
+needed=true
+
+=== S5 idle real watcher (FM_POLL=30) wakes promptly on an external note
+watcher still running idle before note: yes; stdout so far: []
+{"schema":"fm-inbox-note.v1","outcome":"created","id":"1790744894-ypGR8h","request_id":"slack-msg-0001","saved":true,"announced":true,"acknowledged":false,"path":"/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.lVzndI/state/inbox/1790744894-ypGR8h.note"}
+
+[watcher exit 0]
+watcher stdout:
+check: captain-input 2 1790744894-ypGR8h
+note-to-watcher-wake latency: 0.30s (fleet poll is 30s)
+--- state/.wake-queue:
+1790744894	2	check	inbox:1790744894-ypGR8h	check: captain inbox note 1790744894-ypGR8h
+---
+doorbell: 2	1790744894-ypGR8h
+body occurrences /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.lVzndI/state/.wake-queue:0
+body occurrences /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.lVzndI/state/.captain-input-notify:0
+
+=== S6 duplicate delivery of the same listener message id is a replay with no second wake
+$ bin/fm-inbox.sh note --request-id slack-msg-0001 PRIVATE_SLACK_TEXT please check the build
+replay 1790744894-ypGR8h
+  PRIVATE_SLACK_TEXT please check the build
+  firstmate will pick this up at its next check.
+[exit 0]
+inbox rows queued: 1
+
+=== S7 owner drain: ack before handling is refused; handle note; ack; exactly one receipt
+1790744894	2	check	inbox:1790744894-ypGR8h	check: captain inbox note 1790744894-ypGR8h
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 28657.1790744894.thql0S
+$ bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 28657.1790744894.thql0S
+wake drain: handle inbox note 1790744894-ypGR8h before acknowledging its wake
+[exit 1]
+detached (non-owner) note handling attempt:
+fm-inbox: only the owning session may handle subscribed input
+$ bin/fm-inbox.sh drain --ack 1790744894-ypGR8h
+acked 1790744894-ypGR8h
+[exit 0]
+$ bin/fm-inbox.sh drain --ack 1790744894-ypGR8h
+already-acked 1790744894-ypGR8h
+[exit 0]
+$ bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 28657.1790744894.thql0S
+[exit 0]
+--- state/.wake-queue:
+---
+$ bin/fm-inbox.sh input-receipts
+{"schema": "fm-input-receipts.v1", "registered": true, "records": [{"note_id": "1790744894-ypGR8h", "ack": {"sequence": "2", "recovery_generation": "28657.1790744894.thql0S"}, "queue_acknowledged": true, "note_handled": true}]}
+[exit 0]
+{
+    "schema": "fm-input-receipts.v1",
+    "registered": true,
+    "records": [
+        {
+            "note_id": "1790744894-ypGR8h",
+            "ack": {
+                "sequence": "2",
+                "recovery_generation": "28657.1790744894.thql0S"
+            },
+            "queue_acknowledged": true,
+            "note_handled": true
+        }
+    ]
+}
+
+=== S8 away daemon: detached non-owner drain + ack retires a batch holding an unhandled input row
+--- state/.wake-queue:
+1790744896	3	check	inbox:1790744896-MutjQI	check: captain inbox note 1790744896-MutjQI
+1790744896	4	check	ordinary	check: ordinary pr poll
+---
+1790744896	3	check	inbox:1790744896-MutjQI	check: captain inbox note 1790744896-MutjQI
+1790744896	4	check	ordinary	check: ordinary pr poll
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 4 --recovery-generation 30054.1790744896.5QljEI
+WARNING: queued wakes pending - drain them with bin/fm-wake-drain.sh before anything else.
+[daemon ack exit 0]
+--- state/.wake-queue:
+---
+note 1790744896-MutjQI still pending for the owner: yes
+receipt for 1790744896-MutjQI: none
+
+=== S9 unsubscribe restores default-off
+$ bin/fm-inbox.sh unsubscribe
+[exit 0]
+needed=false
