@@ -1,0 +1,94 @@
+
+== S1 default-off: a note in a home that never subscribed does not ring a doorbell or wake the idle watcher early (poll 30s)
+PASS: idle default-off home demands no supervision
+$ fm-inbox.sh note 'hello from the desk'
+queued 1791563200-1Wrb9s
+  hello from the desk
+  firstmate will pick this up at its next check.
+PASS: watcher still in its 30s poll sleep 8104ms after the note
+PASS: no .captain-input / .captain-input-notify files exist
+wake queue row (existing behavior, body in payload as before):
+1791563200	1	check	inbox:1791563200-1Wrb9s	check: captain inbox note 1791563200-1Wrb9s - hello from the desk
+$ fm-inbox.sh input-receipts
+{"schema": "fm-input-receipts.v1", "registered": false, "records": []}
+
+== S2 subscribe is owner-only and default-off until the owner opts in
+$ (non-owner) fm-inbox.sh subscribe
+fm-inbox: only the owning session may change the input subscription
+PASS: non-owner subscribe refused (rc=1)
+PASS: refused subscribe left no registration
+$ (owner) fm-inbox.sh subscribe
+PASS: owner subscribe wrote state/.captain-input (v1)
+PASS: subscribed idle home now demands supervision
+$ fm-inbox.sh input-receipts
+{"schema": "fm-input-receipts.v1", "registered": true, "records": []}
+
+== S3 subscribed: an idle watcher in a 30s poll sleep wakes promptly on a new inbox note
+$ fm-inbox.sh note 'PRIVATE_BODY please look at the deploy'
+queued 1791563211-kxXE4l
+  PRIVATE_BODY please look at the deploy
+  firstmate will pick this up at its next check.
+PASS: watcher closed 515ms after the note (poll interval is 30000ms)
+watcher stdout: check: captain-input 1 1791563211-kxXE4l
+PASS: watcher reason names the queue sequence and note id
+doorbell: 1	1791563211-kxXE4l
+wake queue:
+1791563211	1	check	inbox:1791563211-kxXE4l	check: captain inbox note 1791563211-kxXE4l
+PASS: queue, doorbell and reason line carry no note body
+PASS: exactly one queue row for the note (no redundant wake row)
+
+== S5 owner handles the note: wake ack is refused before the note is handled, then exactly one receipt
+1791563211	1	check	inbox:1791563211-kxXE4l	check: captain inbox note 1791563211-kxXE4l
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 27598.1791563211.F5NZc7
+$ (owner) fm-wake-drain.sh --ack-through 1   # note not yet handled
+wake drain: handle inbox note 1791563211-kxXE4l before acknowledging its wake
+PASS: wake ack refused while the note is unhandled
+$ (non-owner) fm-inbox.sh drain --ack 1791563211-kxXE4l
+fm-inbox: only the owning session may handle subscribed input
+PASS: non-owner note ack refused
+$ (owner) fm-inbox.sh drain --ack 1791563211-kxXE4l
+acked 1791563211-kxXE4l
+$ (owner) fm-wake-drain.sh --ack-through 1
+PASS: owner wake ack succeeded after handling
+$ fm-inbox.sh input-receipts
+{"schema": "fm-input-receipts.v1", "registered": true, "records": [{"note_id": "1791563211-kxXE4l", "ack": {"sequence": "1", "recovery_generation": "27598.1791563211.F5NZc7"}, "queue_acknowledged": true, "note_handled": true}]}
+PASS: exactly one input receipt, queue acknowledged, note handled
+PASS: wake queue is empty after the ack
+
+== S4 attached arm (the merge-resolved path): arm forwards the input delivery without spending its 20s successor window
+queued 1791563214-LCb7ym
+  second note
+  firstmate will pick this up at its next check.
+PASS: arm exited rc=0 703ms after the note (successor window is 20000ms)
+arm stdout:
+watcher: already running pid 32709
+watcher: attached pid=32709 (beacon 1s)
+check: captain-input 2 1791563214-LCb7ym
+PASS: arm printed the exact delivery reason
+PASS: arm reported no failure
+cycle ledger tail:
+arm_pid=33662	watcher_pid=33960	origin=started	started_at=1791563213	ended_at=1791563214	exit_code=0	signal=none	reason=unexpected-clean-exit	beacon_age=1	lock_before=pid:32709|identity:none	lock_after=pid:32709|identity:Fri Oct  9 10:26:53 2026     bash /Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M4GQN5HK1ZYRHM038KAH1SBE/bin/fm-watch.sh	successor=attached:32709
+arm_pid=33662	watcher_pid=32709	origin=attached	started_at=1791563214	ended_at=1791563214	exit_code=unknown	signal=unknown	reason=attached-delivered-wake	beacon_age=1	lock_before=pid:32709|identity:Fri Oct  9 10:26:53 2026     bash /Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M4GQN5HK1ZYRHM038KAH1SBE/bin/fm-watch.sh	lock_after=pid:none|identity:none	successor=none
+PASS: ledger classifies the close as attached-delivered-wake
+
+== S6 away/quiet daemon-style actor (not the session owner) retires the inbox row and writes no receipt
+1791563214	2	check	inbox:1791563214-LCb7ym	check: captain inbox note 1791563214-LCb7ym
+$ (non-owner) fm-wake-drain.sh --ack-through 2
+PASS: non-owner drain+ack succeeded
+PASS: batch retired
+PASS: no input receipt written for the unhandled note
+
+== S7 adversarial: subscribed home, ORDINARY (non-input) wake - the attached arm must not take the input shortcut
+arm stdout:
+watcher: attached pid=40451 (beacon 0s)
+signal: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.ah1dw1/ordinary/state/demo.status
+PASS: ordinary wake still reported as signal: through the upstream close path (rc=0)
+
+== S8 adversarial: unsubscribe restores default-off - next note does not wake the idle watcher early
+PASS: owner unsubscribe removed the registration
+queued 1791563224-rd9eoM
+  after unsubscribe
+  firstmate will pick this up at its next check.
+PASS: watcher still in its 30s poll sleep 8136ms after the note
+
+== RESULT: ALL PASS

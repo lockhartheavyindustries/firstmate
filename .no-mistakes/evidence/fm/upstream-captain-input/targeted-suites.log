@@ -1,0 +1,149 @@
+FM_TEST_BEGIN 2026-10-09T16:25:14Z tests/fm-watch-arm.test.sh family=watcher-wake-lock expected_gate_skip=none
+ok - watch-arm: an attached arm reports the wake its cycle delivered instead of a false failure
+ok - watch-arm: a delivered wake consumed by the handling turn still closes the attached arm cleanly
+ok - watch-arm: an unusable launch confirm window refuses to arm by name
+ok - watch-arm: a disposable validation checkout refuses to arm
+ok - watch-arm: a watcher exits when its state directory is removed
+ok - watch-arm: a watcher exits when its home is removed
+ok - watch-arm: the test reaper stops a watcher armed for a tracked temporary home
+ok - watch-arm: a cycle that delivered no wake of its own still fails loudly
+ok - watch-arm: an attached arm keeps following a slow live holder and reports its wake
+ok - watch-arm: an attached arm hands a holder stalled past the bound to its owner's replacement
+/Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M4GQN5HK1ZYRHM038KAH1SBE/bin/fm-watch-arm.sh: line 776: 86221 Killed: 9                  "$WATCH" > "$child_out"
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 86789.1791563164.b7ULaF
+ok - watch-arm: re-arm surfaces every queued wake and an open remote decision after downtime
+/Users/brianlockhart/.no-mistakes/worktrees/c5aa247731ce/01M4GQN5HK1ZYRHM038KAH1SBE/bin/fm-watch-arm.sh: line 776: 92679 Killed: 9                  "$WATCH" > "$child_out"
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 93113.1791563172.kJj0eF
+ok - watch-arm: a re-arm whose recovery cycle runs slowly still surfaces it
+watcher: recovery state could not be persisted; retaining stale lock evidence
+ok - watch-arm: marker publication failure retains stale-lock recovery evidence
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 2 --recovery-generation 8986.1791563192.9dS6nk
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 3 --recovery-generation 14000.1791563194.1fd0aK
+ok - watch-arm: a wake queued after handling drain is recovered once at successor arm
+ok - watch-arm: interrupted handling leaves its wake durable for successor re-drain
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 0 --recovery-generation 21855.1791563206.GykTU7
+ok - watch-arm: malformed recovery state is quarantined without a successor loop
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 1 --recovery-generation 24338.1791563208.PuzFPW
+ok - watch-arm: publication after recovery handoff is surfaced
+ok - watch-arm: restart publishes recovery before clearing a reused-pid watcher lock
+WAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 7 --recovery-generation 29735.1791563212.jKY7wG
+ok - watch-arm: markerless legacy queues are adopted and recovered
+ok - watch-arm: an idle Lavish source stays quiet and its real result wakes promptly
+ok - watch-arm: appending work reopens an announced empty recovery
+ok - watch-arm: a watcher close during handling keeps the printed acknowledgement valid
+ok - watch-arm: a moved recovery generation consumes handled rows and names its remedy
+ok - watch-arm: downtime marker publication does not follow symlinks
+ok - watch-arm: --stop ends only this home's watcher, publishes downtime, and reports when none runs
+ok - watch-arm: an already-acknowledged handling confirmation succeeds as a no-op
+ok - watch-arm: a churned generation's handling confirmation reports a mismatch and an arm check keeps it
+ok - watch-arm: --take-over attaches to a cycle the named arm does not own and leaves it running
+ok - watch-arm: --take-over owns a fresh cycle without a recovery wake and still surfaces queued work
+watcher: secondmate liveness check failed
+ok - watch-arm: takeover preserves self-exit downtime and surfaces a recovery wake
+ok - watch-arm: the OpenCode arm plugin decides with the shared supervision predicate
+ok - watch-arm: registered input forwards the exact cycle receipt without successor grace
+FM_TEST_END 2026-10-09T16:27:39Z tests/fm-watch-arm.test.sh exit=0 duration_ms=144110 gate_skip=false
+FM_TEST_BEGIN 2026-10-09T16:27:39Z tests/fm-claude-stop-autoarm.test.sh family=standalone expected_gate_skip=none
+ok - auto-arm: inert in a linked child worktree even when in-flight
+ok - auto-arm: inert with no session lock
+ok - auto-arm: a demonstrably dead recorded session owner is reclaimed through fm-lock.sh before arming
+ok - auto-arm: inert without arm, rewake, or lock replacement when another live harness owns the home
+ok - auto-arm: inert while AFK owns supervision
+ok - auto-arm: stale-owner recovery leaves the AFK and supervision-need gates unchanged
+ok - auto-arm: resolves the outermost pid of a nested contiguous claude ancestry (bg-spare chain)
+ok - auto-arm: inert with nothing in flight and no X-mode need
+ok - auto-arm: actionable close translates to exactly one exit-2 rewake with reason
+ok - auto-arm: actionable close survives a healthy successor without duplicate delivery
+ok - auto-arm: an attached cycle's end starts a handling successor named after the closed arm before the rewake
+ok - auto-arm: an unconfirmed handling successor is reported in the rewake instead of blocking it
+ok - auto-arm: bounded failure verification emits one automatic-mechanism alarm
+ok - auto-arm: consecutive failures keep Stop-owned retry without repeating notice
+ok - auto-arm: marker-write refusal defers delivery until one successor commits the notice
+ok - auto-arm: unverified clean close exhausts retries and fails closed
+ok - auto-arm: post-alarm actionable outcomes cannot continue or reset failure state
+ok - auto-arm: benign cycle end with a live watcher and fresh beacon stays silent across the next cycle
+ok - auto-arm: budget contention preserves the episode and forces a reset retry
+ok - auto-arm: owner-mutex contention preserves successor episode state
+ok - auto-arm: X-mode poll need arms the cycle even with no tasks in flight
+ok - auto-arm: a registered custom check arms the cycle even with no tasks in flight
+ok - auto-arm: concurrent firings admit one owner and one rewake translation
+ok - auto-arm: TERM mid-arm commits a durable failure and exits 2 for rewake
+ok - auto-arm: an abandoned owner claim is reclaimed so a lapsed cycle re-arms
+ok - auto-arm: an abandoned-claim reclaim reaps a dead steal mutex without nesting
+ok - auto-arm: a legacy owner still arming is never reclaimed while its watcher keeps beating
+ok - auto-arm: a fresh legacy arming claim is never reclaimed while its startup window is still open
+ok - auto-arm: a live claim the ledger does not name is never reclaimed
+ok - auto-arm: a claim whose pid was reused is reclaimed even while its ledger entry still reads arming
+ok - auto-arm: a reused-pid claim is reclaimed even with no ledger entry to prove it
+ok - auto-arm: an identity-matched owner still arming is never reclaimed
+ok - auto-arm: the guard's terminal-check claim is never reclaimed
+ok - auto-arm: a stuck live legacy owner is retired via TERM and its lock reclaimed
+ok - auto-arm: a SIGSTOPped legacy owner is reclaimed with TERM pending and dies on continue
+ok - auto-arm: a live open generation claim defers concurrent firings with no lock held
+ok - auto-arm: a hung generation owner with no watcher beat is superseded so re-arming self-heals
+ok - auto-arm: an identityless arming ledger never defers the gate (reused-pid loophole closed)
+ok - auto-arm: a superseded owner never re-invokes the arm and leaves its successor's claim untouched
+ok - auto-arm: a superseded owner goes silent - one supersession episode, one translation, no held mutex
+ok - auto-arm: need vanishing mid-cycle closes without a rewake
+ok - auto-arm: mid-cycle AFK hands triage to the daemon with no rewake
+ok - input handoff refuses a session replaced during the active arm
+ok - auto-arm: active in a marked secondmate home
+ok - auto-arm: a long FM_POLL with FM_GUARD_GRACE unset reaches fm-watch-arm.sh with the derived grace
+ok - auto-arm: config/supervision-host-off keeps the hook on the arm exactly as before
+ok - auto-arm: a Claude home without config/supervision-host runs the host by default
+ok - auto-arm: an opted-in home runs the host bound to its generation, and a host line rewakes like a wake
+ok - auto-arm: a wake the host hands back under the away record says it is automatic supervision, not a return
+ok - auto-arm: a wake the host hands back beside a quiet record carries no away note
+ok - auto-arm: without the host the rewake banner is unchanged, eight wake lines at most
+ok - auto-arm: a host handback delivers every host line, while its wake lines keep their cap
+ok - auto-arm: a host that stood down closes silently without a retry
+ok - auto-arm: a host rewake refused on an acknowledged marker opens no failure episode
+ok - auto-arm: a lost host hand-back notifies once per failure episode
+ok - auto-arm: a lost host hand-back on an announced marker notifies once per failure episode
+ok - auto-arm: a host that died without a close is retried, then reported as a failure
+ok - auto-arm: --help, -h, and an unknown argument arm nothing; the Stop path still arms
+ok - fm-lock: shared session-lock lib preserves the status path
+ok - auto-arm: stands down only on a pi-code-delivered transcript_path (/.pi/)
+RC=2
+RC=0
+RC=0
+ok - continuous input uses the existing Stop generation and preserves away/quiet ownership
+ok - auto-arm: inert with no session lock
+ok - auto-arm: inert without arm, rewake, or lock replacement when another live harness owns the home
+ok - auto-arm: concurrent firings admit one owner and one rewake translation
+ok - auto-arm: TERM mid-arm commits a durable failure and exits 2 for rewake
+ok - subscribed input survives timeout and re-arms on the next Stop
+ok - auto-arm: a superseded owner goes silent - one supersession episode, one translation, no held mutex
+ok - auto-arm: mid-cycle AFK hands triage to the daemon with no rewake
+FM_TEST_END 2026-10-09T16:28:47Z tests/fm-claude-stop-autoarm.test.sh exit=0 duration_ms=68332 gate_skip=false
+FM_TEST_BEGIN 2026-10-09T16:28:47Z tests/fm-inbox.test.sh family=unclassified expected_gate_skip=none
+ok - plain note, list, and wake stay on the historical human path
+ok - plain note keeps exit 1 for a saved-but-unannounced failure
+ok - the same request id returns the original note as a distinguishable replay
+ok - a crash between recording the request id and publishing the note reuses the original id
+ok - saved-but-unannounced notes are repairable without creating a second note
+ok - repair and replay do not wake firstmate for an already-acknowledged note
+ok - receipts JSON is bounded by fixed bounds and discloses what it omitted
+ok - notes that predate the announcement marker are unknown, not re-announced
+ok - the reply channel is durable and its cursor is a strict order
+ok - the reply cursor never goes backwards when the sequence counter is lost
+ok - a reply without a valid sequence is reported as malformed
+ok - a non-UTF-8 note does not break the receipts view
+ok - readiness says unknown (or not-receivable) instead of inferring liveness from a lock
+ok - empty bodies and unsafe request ids are refused
+ok - a note body that opens with a double dash is queued as text
+ok - drain --ack still moves the note to handled
+ok - idle demand, owner refusal, body-free notification, and one shared acknowledgement
+ok - non-session drain actors retire subscribed input rows without a receipt
+ok - input handed off while subscribed keeps its receipt after unsubscription
+ok - subscribed idle watcher wakes before the unchanged fleet poll and retains simultaneous sources
+ok - input is delivered between bounded checks without reducing the fleet poll
+FM_TEST_END 2026-10-09T16:29:05Z tests/fm-inbox.test.sh exit=0 duration_ms=18392 gate_skip=false
+FM_TEST_SUMMARY total=3 failed=0 skipped_gate=0 duration_ms=231113
+FM_TEST_SUMMARY_FAMILY family=standalone count=1 duration_ms=68332 failed=0
+FM_TEST_SUMMARY_FAMILY family=unclassified count=1 duration_ms=18392 failed=0
+FM_TEST_SUMMARY_FAMILY family=watcher-wake-lock count=1 duration_ms=144110 failed=0
+FM_TEST_SLOWEST rank=1 script=tests/fm-watch-arm.test.sh duration_ms=144110
+FM_TEST_SLOWEST rank=2 script=tests/fm-claude-stop-autoarm.test.sh duration_ms=68332
+FM_TEST_SLOWEST rank=3 script=tests/fm-inbox.test.sh duration_ms=18392
+exit=0
