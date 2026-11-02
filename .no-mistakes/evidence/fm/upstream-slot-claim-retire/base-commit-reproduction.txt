@@ -1,0 +1,33 @@
+### 1. spawn older task slot-older into pool slot
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.SYqoYR/manual/home/data/slot-older/launch-brief.md records no ship branch; defaulting to legacy branch fm/slot-older
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.SYqoYR/manual/home/data/slot-older/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned slot-older harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-slot-older worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.SYqoYR/manual/slots/1/project
+### older record before reuse (worktree lines)
+window=firstmate:fm-slot-older
+worktree=<case>/slots/1/project
+### slot owner claim
+task=slot-older
+home=<case>/home
+### 2. older endpoint is a bare shell (pane_current_command=zsh); spawn slot-newer into same slot
+### older record after reuse
+window=firstmate:fm-slot-older
+worktree=<case>/slots/1/project
+### slot owner claim now
+task=slot-newer
+home=<case>/home
+### 3. relaunch retired task
+warning: <case>~/slot-older/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned slot-older harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-slot-older worktree=<case>/slots/1/project
+relaunch exit=0
+### 4. teardown new task slot-newer
+REFUSED: task slot-newer's recorded worktree <case>/slots/1/project is also task slot-older's recorded worktree.
+Returning that pool slot would kill slot-older's processes and reset its copy, so nothing was changed - not even with --force.
+Reconcile whichever record is wrong (bin/fm-crew-state.sh slot-newer; bin/fm-crew-state.sh slot-older), then re-run teardown.
+teardown exit=1
+### 5. teardown retired task slot-older
+warning: task slot-older's recorded worktree <case>/slots/1/project was reassigned to task slot-newer (home <case>/home), which claimed that pool slot after this record was written; that slot is no longer slot-older's, so its processes, copy, and claim are left untouched and only slot-older's own cleanup runs.
+<case>/project: synced e72b64a..bddea4c
+teardown slot-older complete (window firstmate:fm-slot-older; pool slot <case>/slots/1/project left to task slot-newer (home <case>/home), which it was reassigned to)
+Backlog: slot-older just finished (this home keeps no markdown backlog at <case>~/backlog.md). Update <case>~/backlog.md - move slot-older to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+teardown exit=0
+/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.SYqoYR/manual/home/state/slot-newer.meta

@@ -1,0 +1,33 @@
+### 1. spawn older task slot-older into pool slot
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.2RBqEL/manual/home/data/slot-older/launch-brief.md records no ship branch; defaulting to legacy branch fm/slot-older
+warning: /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.2RBqEL/manual/home/data/slot-older/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches
+spawned slot-older harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-slot-older worktree=/private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-spawn-pool-base-freshen.2RBqEL/manual/slots/1/project
+### older record before reuse (worktree lines)
+window=firstmate:fm-slot-older
+worktree=<case>/slots/1/project
+### slot owner claim
+task=slot-older
+home=<case>/home
+### 2. older endpoint is a bare shell (pane_current_command=zsh); spawn slot-newer into same slot
+note: retired task slot-older's stale pool slot claim to worktree_outdated; successor is slot-newer
+### older record after reuse
+window=firstmate:fm-slot-older
+worktree_outdated=<case>/slots/1/project
+worktree_reassigned_to=slot-newer
+### slot owner claim now
+task=slot-newer
+home=<case>/home
+### 3. relaunch retired task
+git -C <case>/project worktree list
+A pool slot handed on to another task since is still safe to name: cleanup reads that slot's own .fm-slot-owner claim and then leaves the slot untouched, while a slot with no claim is proved only by that worktree listing.
+relaunch exit=1
+### 4. teardown new task slot-newer
+teardown slot-newer complete (window firstmate:fm-slot-newer, worktree <case>/slots/1/project)
+Backlog: slot-newer just finished (this home keeps no markdown backlog at <case>~/backlog.md). Update <case>~/backlog.md - move slot-newer to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+teardown exit=0
+### 5. teardown retired task slot-older
+<case>/project: synced d6c7cd9..ec368fc
+teardown slot-older complete (window firstmate:fm-slot-older, worktree )
+Backlog: slot-older just finished (this home keeps no markdown backlog at <case>~/backlog.md). Update <case>~/backlog.md - move slot-older to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+teardown exit=0
+no task records remain

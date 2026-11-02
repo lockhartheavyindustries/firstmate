@@ -1,0 +1,8 @@
+ok - stopped task slot reuse retires worktree= to worktree_outdated= and new task teardown succeeds
+ok - slot reuse refuses live older task without retiring its record or changing its work
+ok - slot reuse refuses missing older task without retiring its record or changing its work
+ok - slot reuse refuses dirty older task without retiring its record or changing its work
+ok - slot reuse refuses unlanded older task without retiring its record or changing its work
+ok - slot reuse refuses locked older task without retiring its record or changing its work
+# retirement case passed
+exit=0
