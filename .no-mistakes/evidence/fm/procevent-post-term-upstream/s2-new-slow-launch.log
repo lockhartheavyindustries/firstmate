@@ -1,0 +1,8 @@
+ok - stop mismatch evidence preserves the proved-stop boundary
+ok - stop unreadable evidence preserves the proved-stop boundary
+ok - stop unreadable-pgid evidence preserves the proved-stop boundary
+ok - stop nonleader evidence preserves the proved-stop boundary
+
+harness: post-TERM loop completed
+env PT_SHIM=$S/shim PT_MODE=slow PT_DELAY=5 bash tests/.pt-$v-harness.sh  3.36s user 5.97s system 25% cpu 36.144 total
+exit=0

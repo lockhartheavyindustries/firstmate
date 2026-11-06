@@ -1,0 +1,3 @@
+reconcile (runner delayed 5s, default 3s confirm window): rc=1
+reconciled: published=0 started=0 stopped=0 uncertain=0 failed=1
+slow-src.claim

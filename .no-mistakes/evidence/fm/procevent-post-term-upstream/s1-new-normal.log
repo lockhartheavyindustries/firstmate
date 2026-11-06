@@ -1,0 +1,8 @@
+ok - stop mismatch evidence preserves the proved-stop boundary
+ok - stop unreadable evidence preserves the proved-stop boundary
+ok - stop unreadable-pgid evidence preserves the proved-stop boundary
+ok - stop nonleader evidence preserves the proved-stop boundary
+
+harness: post-TERM loop completed
+bash tests/.pt-new-harness.sh  1.81s user 2.33s system 29% cpu 13.909 total
+exit=0

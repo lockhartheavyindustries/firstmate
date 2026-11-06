@@ -1,0 +1,2 @@
+env PT_SHIM=$S/shim PT_MODE=slow PT_DELAY=5 bash tests/.pt-$v-harness.sh  0.72s user 1.31s system 42% cpu 4.779 total
+exit=1
