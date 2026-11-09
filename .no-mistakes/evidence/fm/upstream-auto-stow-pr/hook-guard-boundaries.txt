@@ -1,0 +1,10 @@
+## A: plain lab clone, tokens=1000, fresh state (control: expect block)
+{"decision":"block","reason":"fm-stow-guard: context is 75102 tokens, near auto-compaction. Run the /stow skill now (full pass), then continue the turn you were in."}
+  rc=0
+## B: same, but gate linked worktree bin (expect silent)
+  rc=0
+## C: marked secondmate home clone (expect silent)
+  rc=0
+## D: config/stow-guard removed (expect silent, no state)
+  rc=0
+ls: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T//fm-lab.NqqrRn/state/.stow-guard.json: No such file or directory
