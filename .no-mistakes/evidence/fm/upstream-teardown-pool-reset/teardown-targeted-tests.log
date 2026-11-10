@@ -1,0 +1,4 @@
+ok - local-only worktree with truly unpushed work is refused (safety preserved)
+ok - local-only worktree with work merged into local main is torn down (no regression)
+ok - a clean returned pool slot on a local-only commit is detached back to the published commit
+ok - a returned pool slot on a commit no branch holds stays untouched with one warning

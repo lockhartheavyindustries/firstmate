@@ -1,0 +1,60 @@
+===== FIXED (landed) =====
+slot acquired: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.3rDsYP/pool/.treehouse/proj-da522f/1/proj
+published(origin/main)=882e449927e087a596e7429ec1970610554ed384 task-commit=391ac045050b269d99a114ceb81b9d569e426c67
+--- teardown (no flags) ---
+🌳 Worktree returned to pool.
+error: tmux window firstmate:fm-task-x1 could not be read after its close, so whether it survived is unknown
+error: the tmux endpoint firstmate:fm-task-x1 for task-x1 could not be closed, so it may still be live.
+error: stopping this cleanup without removing the task's records, so the record naming firstmate:fm-task-x1 is still here to reconcile from.
+error: that retention is not durable across a session start: if this task carries a backlog transition, the next session replays its pending close and removes the retained record, so reconcile the surviving endpoint yourself rather than trusting the retention.
+error: rerun teardown once the close can succeed, or rerun with --force to discard this task's records deliberately.
+teardown rc=1
+--- after ---
+slot HEAD=882e449927e087a596e7429ec1970610554ed384 ref=HEAD dirty=[]
+project main=391ac045050b269d99a114ceb81b9d569e426c67  branches: main 
+--- treehouse status ---
+base  main  (repository default)
+1     available    /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.3rDsYP/pool/.treehouse/proj-da522f/1/proj  (detached)
+next get -> /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.3rDsYP/pool/.treehouse/proj-da522f/1/proj (same slot recycled: yes)
+  get stderr: 🌳 Setting up worktree...
+  get stderr: 🌳 Leased worktree at /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.3rDsYP/pool/.treehouse/proj-da522f/1/proj. Run 'treehouse return /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.3rDsYP/pool/.treehouse/proj-da522f/1/proj' to release it.
+===== FIXED (orphan) =====
+slot acquired: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/pool/.treehouse/proj-0a9f62/1/proj
+published(origin/main)=0a30f71f59c5376f96bdb6b4925bbe2ced95704e task-commit=55a75830c25fe5c58f692b4eeb95eaa993134bf5
+--- teardown (--force) ---
+🌳 Worktree returned to pool.
+error: tmux window firstmate:fm-task-x1 could not be read after its close, so whether it survived is unknown
+error: the tmux endpoint firstmate:fm-task-x1 for task-x1 could not be closed, so it may still be live.
+error: --force authorizes continuing past a close that failed, so this cleanup proceeds toward removing the task's records; reconcile firstmate:fm-task-x1 yourself, because nothing here can still be relied on to name it.
+teardown task-x1 complete (window firstmate:fm-task-x1, worktree /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/pool/.treehouse/proj-0a9f62/1/proj)
+Backlog: task-x1 just finished (this home keeps no markdown backlog at /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/data/backlog.md). Update /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/data/backlog.md - move task-x1 to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+teardown rc=0
+--- after ---
+slot HEAD=0a30f71f59c5376f96bdb6b4925bbe2ced95704e ref=HEAD dirty=[]
+project main=0a30f71f59c5376f96bdb6b4925bbe2ced95704e  branches: main 
+--- treehouse status ---
+base  main  (repository default)
+1     available    /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/pool/.treehouse/proj-0a9f62/1/proj  (detached)
+next get -> /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/pool/.treehouse/proj-0a9f62/1/proj (same slot recycled: yes)
+  get stderr: 🌳 Setting up worktree...
+  get stderr: 🌳 Leased worktree at /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/pool/.treehouse/proj-0a9f62/1/proj. Run 'treehouse return /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.AEeJWl/pool/.treehouse/proj-0a9f62/1/proj' to release it.
+===== FIXED (dirty) =====
+slot acquired: /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/pool/.treehouse/proj-8b6f1e/1/proj
+published(origin/main)=82b96785517cbac12ded63a05cdea90bdf4ee717 task-commit=41bcd2fdbfb29e8c2547da17b5d50378ec824645
+--- teardown (--force) ---
+🌳 Worktree returned to pool.
+error: tmux window firstmate:fm-task-x1 could not be read after its close, so whether it survived is unknown
+error: the tmux endpoint firstmate:fm-task-x1 for task-x1 could not be closed, so it may still be live.
+error: --force authorizes continuing past a close that failed, so this cleanup proceeds toward removing the task's records; reconcile firstmate:fm-task-x1 yourself, because nothing here can still be relied on to name it.
+teardown task-x1 complete (window firstmate:fm-task-x1, worktree /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/pool/.treehouse/proj-8b6f1e/1/proj)
+Backlog: task-x1 just finished (this home keeps no markdown backlog at /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/data/backlog.md). Update /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/data/backlog.md - move task-x1 to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.
+teardown rc=0
+--- after ---
+slot HEAD=82b96785517cbac12ded63a05cdea90bdf4ee717 ref=HEAD dirty=[]
+project main=41bcd2fdbfb29e8c2547da17b5d50378ec824645  branches: main 
+--- treehouse status ---
+base  main  (repository default)
+1     available    /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/pool/.treehouse/proj-8b6f1e/1/proj  (detached)
+next get -> /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/pool/.treehouse/proj-8b6f1e/1/proj (same slot recycled: yes)
+  get stderr: 🌳 Setting up worktree...
+  get stderr: 🌳 Leased worktree at /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/pool/.treehouse/proj-8b6f1e/1/proj. Run 'treehouse return /var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-lab.WEQoKt/pool/.treehouse/proj-8b6f1e/1/proj' to release it.

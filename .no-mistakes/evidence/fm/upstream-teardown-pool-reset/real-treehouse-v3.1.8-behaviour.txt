@@ -1,0 +1,4 @@
+Real treehouse v3.1.8, isolated TREEHOUSE_ROOT/HOME, throwaway origin + clone (all removed afterwards).
+1. Leased slot 1, committed on local branch fm/task-x1, moved local main to that commit, `treehouse return --force` -> slot detached at local-main commit (4a22b64), not origin/main (94cd49c); status "available"; next `get --lease` reused slot 1  => base branch holding HEAD is enough to recycle.
+2. Returned slot 1, then committed on local branch "side" (not main) and detached -> status "available", but next `get --lease` created slot 2  => STRAND reproduced: HEAD held only by a non-base local branch.
+3. Leased slot 2, committed on unmerged branch "feat", `treehouse return --force` -> treehouse itself moved the slot to local main (4a22b64), detached.

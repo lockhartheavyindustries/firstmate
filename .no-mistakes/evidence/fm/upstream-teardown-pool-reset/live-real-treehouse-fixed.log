@@ -1,0 +1,51 @@
+--- A local-only landed in local main: teardown rc=0
+stderr:
+slot HEAD     : 6a6540bb0ef930c69dde8707447cd58f3db023fc (HEAD)
+origin/main   : 6a6540bb0ef930c69dde8707447cd58f3db023fc
+local main    : d0079309ff22c0836042dd1e501de63c0e53c77d
+branches      : main=d007930 
+slot dirty?   : ''
+treehouse status after teardown:
+  | base  main  (repository default)
+  | 1     available    /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveA/thpool/.treehouse/project-d8fdad/1/project  (detached)
+next 'treehouse get --lease' -> /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveA/thpool/.treehouse/project-d8fdad/1/project
+RESULT: slot RECYCLED
+task commit   : 71543b4014556b06a4e7b4755462ba63c47a167d
+--- B local-only, commit only on local task branch, --force: teardown rc=0
+stderr:
+slot HEAD     : 1cfa379aeefea632cfe5f828bf66f2cf6a47dff1 (HEAD)
+origin/main   : 1cfa379aeefea632cfe5f828bf66f2cf6a47dff1
+local main    : 1cfa379aeefea632cfe5f828bf66f2cf6a47dff1
+branches      : main=1cfa379 
+slot dirty?   : ''
+treehouse status after teardown:
+  | base  main  (repository default)
+  | 1     available    /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveB/thpool/.treehouse/project-6726d2/1/project  (detached)
+next 'treehouse get --lease' -> /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveB/thpool/.treehouse/project-6726d2/1/project
+RESULT: slot RECYCLED
+task commit   : 2360abec7052bf008ef442cfda55f0ea3a393232
+--- C scout, HEAD held by no branch: teardown rc=0
+stderr:
+slot HEAD     : 424ac3eeaebaa3a7f6ef952e3972429a5aba2f90 (HEAD)
+origin/main   : 424ac3eeaebaa3a7f6ef952e3972429a5aba2f90
+local main    : 424ac3eeaebaa3a7f6ef952e3972429a5aba2f90
+branches      : main=424ac3e 
+slot dirty?   : ''
+treehouse status after teardown:
+  | base  main  (repository default)
+  | 1     available    /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveC/thpool/.treehouse/project-4d5936/1/project  (detached)
+next 'treehouse get --lease' -> /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveC/thpool/.treehouse/project-4d5936/1/project
+RESULT: slot RECYCLED
+task commit   : 431a31c696e5aaaa089abdb56df887ee4d98fdb9 (pushed to origin/fm/task-x1)
+--- D HEAD already on a remote-tracking branch: teardown rc=0
+stderr:
+slot HEAD     : 72185358382395de65969a4a986d7a975956ec80 (HEAD)
+origin/main   : 72185358382395de65969a4a986d7a975956ec80
+local main    : 72185358382395de65969a4a986d7a975956ec80
+branches      : main=7218535 
+slot dirty?   : ''
+treehouse status after teardown:
+  | base  main  (repository default)
+  | 1     available    /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveD/thpool/.treehouse/project-8d20da/1/project  (detached)
+next 'treehouse get --lease' -> /private/var/folders/s1/snlgw2717m5b9n40n4z1pt9r0000gn/T/fm-teardown-tests.O6lLvV/liveD/thpool/.treehouse/project-8d20da/1/project
+RESULT: slot RECYCLED
